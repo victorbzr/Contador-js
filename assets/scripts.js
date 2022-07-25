@@ -1,17 +1,36 @@
-let count = 0;
+var currentNumberWrapper = document.getElementById('currentNumber');
+var currentNumber = 0;
 
-const CURRENT_NUMBER = document.getElementById('currentNumber');
-
-function increment() {
-	count++;
-	CURRENT_NUMBER.innerHTML = count;
+function increment(){
+	currentNumber = currentNumber + 1;
+	defineLimit();
+	currentNumberWrapper.innerHTML = currentNumber;
+	changeColor();
 }
 
-function decrement() {
-	count--;
-	CURRENT_NUMBER.innerHTML = count;
+function decrement(){
+	currentNumber = currentNumber - 1;
+	defineLimit();
+	currentNumberWrapper.innerHTML = currentNumber;
+	changeColor();
 }
 
-function test() {
-	kdowkdpo;
+function defineLimit(){
+	if (currentNumber === -11){
+		currentNumber = -10;
+	}
+	else{
+		if (currentNumber === 11){
+			currentNumber = 10;
+		}
+	}
+}
+
+function changeColor(){
+	if (currentNumber < 0){
+		currentNumberWrapper.style.color = 'red';
+	}
+	else{
+		currentNumberWrapper.style.color = 'black';
+	}
 }
